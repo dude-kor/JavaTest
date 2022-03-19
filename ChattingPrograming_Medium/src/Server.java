@@ -34,7 +34,6 @@ public class Server {
                     }
                 }
             });
-
             Thread receive = new Thread(new Runnable(){
                 String msg;
                 @Override
@@ -45,9 +44,7 @@ public class Server {
                             System.out.println("Client : "+msg);
                             msg = in.readLine();
                         }
-
                         System.out.println("Client disconnected");
-
                         out.close();
                         clientSocket.close();
                         serverSocket.close();
