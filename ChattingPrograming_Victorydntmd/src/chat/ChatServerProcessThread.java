@@ -35,7 +35,7 @@ public class ChatServerProcessThread extends Thread {
                 String request = bufferedReader.readLine();
 
                 if(request == null){
-                    consoleLog("Disconnect from the Client");
+                    consoleLog("Disconnected from the Client");
                     doQuit(printWriter);
                     break;
                 }
