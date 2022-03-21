@@ -49,8 +49,6 @@ public class ChatServerProcessThread extends Thread {
                     doQuit(printWriter);
                 }
             }
-
-
         }catch(IOException e){
             consoleLog(this.nickname + " has left the chatting room");
         }

@@ -52,9 +52,9 @@ public class ChatWindow {
         // Button
         sendButton.setBackground(Color.GRAY);
         sendButton.setForeground(Color.WHITE);
-        sendButton.addActionListener(new ActionListener(){
+        sendButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent actionEvent){
+            public void actionPerformed(ActionEvent e) {
                 sendMessage();
             }
         });
