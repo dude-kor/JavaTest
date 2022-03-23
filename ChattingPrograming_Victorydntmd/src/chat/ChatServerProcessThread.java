@@ -27,20 +27,17 @@ public class ChatServerProcessThread extends Thread {
         try{
             BufferedReader bufferedReader =
                     new BufferedReader(new InputStreamReader(socket.getInputStream(), StandardCharsets.UTF_8));
-
             PrintWriter printWriter =
                     new PrintWriter(new OutputStreamWriter(socket.getOutputStream(), StandardCharsets.UTF_8));
-
             while(true){
                 String request = bufferedReader.readLine();
-
                 if(request == null){
                     consoleLog("Disconnected from the Client");
                     doQuit(printWriter);
                     break;
                 }
 
-                String[] tokens = request.split(":");
+                String[] tokens = request.split(" : ");
                 if("join".equals(tokens[0])){
                     doJoin(tokens[1],printWriter);
                 }else if("message".equals(tokens[0])){
@@ -74,7 +71,8 @@ public class ChatServerProcessThread extends Thread {
     private void doJoin(String nickname, PrintWriter writer){
         this.nickname = nickname;
 
-        String data = nickname + "has join";
+        String data = nickname + " has join";
+        consoleLog(data);
         broadcast(data);
 
         // writer pool에 저장
